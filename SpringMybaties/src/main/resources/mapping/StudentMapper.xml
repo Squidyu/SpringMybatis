@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.squid.dao.StudentDao">
+    <!-- 通过学号查询学生信息 -->
+    <select id="getStuById" parameterType="String" resultType="com.squid.bean.Student">
+        select s.id,s.name,s.sex,a.location
+        from stu_info s,address_info a
+        where s.id=#{id} and s.address_id=a.id
+    </select>
+</mapper>
